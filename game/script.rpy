@@ -5,14 +5,21 @@
 
 define o1 = Character("Josh")
 define o2 = Character("Kyle")
-define do1 = Character("Josh but distant")
-define do2 = Character("Kyle but distant")
+define o3 = Character("Sebastian")
+define kareoke = Character("Tristan")
+define overflow = Character("Announcement")
 define evil = Character("Evil Kyle")
+define cbr = Character("Campfire Canberra")
+define music = Character("Someones JBL Speaker")
 define backgroundchatter = Character("Incoherent Yelling")
 
 image proom:
     "images/room.png"
     zoom 1
+
+image canberra:
+    "images/canberra.png"
+    zoom 0.5
 
 image eroom:
     "images/room2.png"
@@ -54,12 +61,6 @@ image orgroom:
     "images/org.jpeg"
     zoom 4
 
-transform move_right:
-    linear 2.0 xalign 1.0
-
-transform move_left:
-    linear 2.0 xalign 0.0
-# The game starts here.
 
 label start:
 
@@ -120,7 +121,6 @@ label game:
     evil "*lighter sounds*"
     o1 "what was that?"
     o2 "eh probably nothing"
-    "i can tell kyles's worried about something."
     show kyle
     o2 "hows your game going"
     menu:
@@ -135,6 +135,7 @@ label cont:
     o2 "thats alright!"
     o2 "what about a game about a campfire event where everything goes wrong?"
     "like i havent heard that one before..."
+    o2 "oh or a game about fighting "
     jump cont2
 
 
@@ -150,8 +151,11 @@ label angry:
     o2 "SIX SEVEN!!!"
     evil "SIX SEVEN SIX SEVEN SIX SEVEN"
     show fire3 at left zorder 10
+    o2 "haha burn"
+    evil "nooooooooooo"
     hide evilkyle
-    show kyle at move_right
+    hide kyle
+    show kyle at right
     o2 "that was nearly a disaster.."
     hide fire3
     o2 "its ok now! continue on with your game!"
@@ -165,7 +169,7 @@ label angry:
 
 label noevil:   
     scene orgroom
-    "no ones down here, just some bags. im going back to work on my game."
+    "no ones down here. im going back to work on my game."
 
 label cont2:
     scene eroom
@@ -174,20 +178,63 @@ label cont2:
     backgroundchatter "yeah but why not, like gambling beneath the surface or smth"
     backgroundchatter "hol'up you've got a point there"
     "i guess ill put on some headphones and like... make a game?"
+    "but what to make..."
+    overflow "Kareoke is starting in 3 minutes"
 
-    do2 "you know, sometimes i wonder if i'm a good organiser."
-    do1 "what do you mean?"
-    do2 "all the other organisers seem to have it together. i just... wing it."
-    do1 "i started coding after daydream. it was a disaster, but i loved it. that bought me here today, as an organiser. youll work things out on the way."
+    menu:
+        "Go to kareoke?"
+        "sure why not":
+            jump kareoke
+        "no im good.":
+            jump cont3
+
+label cont3:
+    scene eroom
+    overflow "IIIII JUST WANNA TELL YOU HOW IM FEELING"
+    overflow "DONT TELL ME YOURE TOO BLIND TO SEE"
+    o1 "SEBASTIAN TURN OFF OVERFLOW"
+    o3 "oops"
+    kareoke "muffled kareoke noises"
+    overflow "campfire canberra is in the other room! go say hello!!"
+    o2 "which other room"
+    jump cont4
 
 
+label kareoke:
+    scene eroom
+    overflow "Kareoke has been cancelled, however you can go meet campfire canberra in the Projector room!"
+    o2 "both rooms have projectors."
+    jump cont4
+
+label cont4:
+    menu:
+        "Do you want to go see campfire canberra?"
+        "yes":
+            jump call
+        "no":
+            jump cont5
 
 
+label call:
+    scene proom
+    show canberra at center
+    cbr "Hello."
+    "hi canberra"
+    cbr "hi auckland"
+    "why do you have so many blahajs"
+    cbr "we spent hack club money on these"
+    "fair enough"
+    cbr "ok bye"
+    "byee"
+    jump cont5
 
-
-
-
-
+label cont5:
+    scene proom
+    show josh at left
+    show kyle at right
+    o1 "and the winner is"
+    o2 "no one!"
+    o1 "all the games were too good or smth"
 return
 
 
