@@ -13,6 +13,10 @@ define cbr = Character("Campfire Canberra")
 define music = Character("Someones JBL Speaker")
 define backgroundchatter = Character("Incoherent Yelling")
 
+image microwave:
+    "images/micheal.jpeg"
+    zoom 1
+
 image proom:
     "images/room.png"
     zoom 1
@@ -169,8 +173,15 @@ label angry:
 
 label noevil:   
     scene orgroom
-    "no ones down here. im going back to work on my game."
-
+    show kyle at left
+    show josh at right
+    show microwave at center
+    "kyle and josh are here."
+    o1 "it starts a two minute one +30 second then it starts and then Kyle doesn’t know" 
+    o1 "Kyle doesn’t know how to work a knob"
+    o1 "turn the knob to make number go up"
+    o1 "and you twisted off the other way to go down negative numbers on the microwave, make your food"
+    o2 "microwaves are hard okay"
 label cont2:
     scene eroom
     backgroundchatter "so what if... gambling game?"
@@ -179,6 +190,7 @@ label cont2:
     backgroundchatter "hol'up you've got a point there"
     "i guess ill put on some headphones and like... make a game?"
     "but what to make..."
+
     overflow "Kareoke is starting in 3 minutes"
 
     menu:
@@ -234,7 +246,10 @@ label cont5:
     show kyle at right
     o1 "and the winner is"
     o2 "no one!"
-    o1 "all the games were too good or smth"
+    o1 "all the games were too interesting or smth"
+    o2 "go home"
+    o1 "we are like an hour behind schedule"
+    "that was a hackathon..."
 return
 
 
